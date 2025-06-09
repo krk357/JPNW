@@ -15,12 +15,16 @@
 #  2.) How does inclusion of “don’t know” responses help us better who is not being represented on surveys about climate change? 
 #
 
+# Download required packages, require() will check if the package is installed already before download.
+
 if (!require(foreign)) install.packages("foreign", dependencies = TRUE)
 if (!require(dplyr)) install.packages("dplyr", dependencies = TRUE)
 if (!require(car)) install.packages("car", dependencies = TRUE)
 if (!require(nnet)) install.packages("nnet", dependencies = TRUE)
 if (!require(summarytools)) install.packages("summarytools", dependencies = TRUE)
 if (!require(stargazer)) install.packages("stargazer", dependencies = TRUE)
+
+# Apply the installed packages to this set ready to use.
 
 library(foreign)
 library(dplyr)
@@ -41,9 +45,11 @@ detach("package:dplyr")
 #################### Variables ####################
 
 # Dependent variable(s)
-# Q111 = Protecting environment vs. economic growth
+
 
 # Binary
+
+# Q111 = Protecting environment vs. economic growth
 
 table(jpn$Q111)
 jpn$dunnos <- recode(jpn$Q111, "1=0; 2=0; 3=0; else=1")
@@ -64,37 +70,37 @@ table(jpn$pref)
 
 # Independent Variables
 
-# Age
+# Q262 = Age
 
 table(jpn$Q262)
 jpn$age <- recode(jpn$Q262, "-5=NA; -2=NA; -1=NA")
 table(jpn$age)
 
-# Gender
+# Q260 = Gender
 
 table(jpn$Q260)
 jpn$gender <- recode(jpn$Q260, "1=0; 2=1; else=NA")
 table(jpn$gender)
 
-# Education
+# Q275 = Education
 
 table(jpn$Q275)
 jpn$educ <- recode(jpn$Q275, "-5=NA; -2=NA; -1=NA; 0=0; 1:3=1; 4:5=2; 6:7=3; 8=4")
 table(jpn$educ)
 
-# Income
+# Q288 = Income
 
 table(jpn$Q288)
 jpn$income <- recode(jpn$Q288, "-5=NA; -2=NA; -1=NA")
 table(jpn$income)
 
-# Interest of Politics
+# Q199 = Interest of Politics
 
 table(jpn$Q199)
 jpn$polint <- recode(jpn$Q199, "-5=NA; -2=NA; -1=NA; 1:2=1; 3:4=0")
 table(jpn$polint)
 
-# Ideology
+# Q240 = Ideology
 
 table(jpn$Q240)
 jpn$ideology <- recode(jpn$Q240, "-5=NA; -4=NA; -2=NA; -1=NA")
@@ -106,7 +112,7 @@ table(jpn$H_URBRURAL)
 jpn$urbrural <- recode(jpn$H_URBRURAL, "-5=NA; 2=0; 1=1")
 table(jpn$urbrural)
 
-# Economic satisfaction -> this? Prospective economic evaluations
+# Q50 = Economic satisfaction -> this? Prospective economic evaluations
 
 table(jpn$Q50)
 jpn$econsat <- recode(jpn$Q50, "-5=NA; -2=NA; -1=NA")
