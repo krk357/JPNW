@@ -33,3 +33,24 @@ library(stargazer)
 
 dat <- read.dta(file.choose(), convert.factors=FALSE)
 jpn<-dat%>%filter(B_COUNTRY==392)
+
+# Let's disable package "dplyr" because otherwise the recode function from "car" package doesn't work for some reason.
+
+detach("package:dplyr")
+
+#################### Variables ####################
+
+# Dependent variable(s)
+# Q111 = Protecting environment vs. economic growth
+
+# Binary
+
+table(jpn$Q111)
+jpn$dunnos <- recode(jpn$Q111, "1=0; 2=0; 3=0; else=1")
+table(jpn$dunnos)
+
+jpn$pronatu <- recode(jpn$Q111, "1=1; 2:3=0; else=0")
+table(jpn$pronatu)
+
+jpn$proecon <- recode(jpn$Q111, "2=1; 1=0; 3=0; else=0")
+table(jpn$proecon)
