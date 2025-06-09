@@ -50,6 +50,8 @@ detach("package:dplyr")
 # Binary
 
 # Q111 = Protecting environment vs. economic growth
+# Here are two statements people sometimes make when discussing the environment and economic growth. Which of them comes closer to your own point of view?
+# Protecting the environment should be given priority, even if it causes slower economic growth and some loss of jobs. 2. Economic growth and creating jobs should be the top priority, even if the environment suffers to some extent. 3. Other answer.
 
 table(jpn$Q111)
 jpn$dunnos <- recode(jpn$Q111, "1=0; 2=0; 3=0; else=1")
@@ -77,18 +79,23 @@ jpn$age <- recode(jpn$Q262, "-5=NA; -2=NA; -1=NA")
 table(jpn$age)
 
 # Q260 = Gender
+# 1. Male 2. Female
 
 table(jpn$Q260)
 jpn$gender <- recode(jpn$Q260, "1=0; 2=1; else=NA")
 table(jpn$gender)
 
 # Q275 = Education
+# What is the highest educational level that you, your spouse, your mother and your father have attained?
+# 0. No education 1. Primary education 2. Lower secondary education 3. Upper secondary education 4. Post-secondary non-tertiary education 5. Short-cycle tertiary education 6. Bachelor or equivalent 7. Master or equivalent 8. Doctoral or equivalent 
 
 table(jpn$Q275)
 jpn$educ <- recode(jpn$Q275, "-5=NA; -2=NA; -1=NA; 0=0; 1:3=1; 4:5=2; 6:7=3; 8=4")
 table(jpn$educ)
 
 # Q288 = Income
+# On this card is an income scale on which 1 indicates the lowest income group and 10 the highest income group in your country. We would like to know in what group your household is. Please, specify the appropriate number, counting all wages, salaries, pensions and other incomes that come in
+# Lowest group 1 ... 10 Highest group
 
 table(jpn$Q288)
 jpn$income <- recode(jpn$Q288, "-5=NA; -2=NA; -1=NA")
