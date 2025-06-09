@@ -140,3 +140,13 @@ summary(proecon.mod)
 
 multi.mod1 <- multinom(pref ~ age  + gender + educ + income + polint + ideology + urbrural + econsat, family = binomial, data = jpn)
 summary(multi.mod1)
+
+####### Stargazer Charts for the Models ###########
+
+stargazer(dunnos.mod, type = "html", dep.var.labels = c("Answered dont know"), covariate.labels = c("Age", "Gender", "Education", "Income", "Interest in Politics", "Ideology", "Rural / Urban", "Economic satistfaction"), no.space = TRUE, star.cutoffs = c(0.05, 0.01, 0.001), out = "dunno_res")
+
+stargazer(pronatu.mod, type = "html", dep.var.labels = c("Protect the Environment"), covariate.labels = c("Age", "Gender", "Education", "Income", "Interest in Politics", "Ideology", "Rural / Urban", "Economic satistfaction"), no.space = TRUE, star.cutoffs = c(0.05, 0.01, 0.001), out = "pronatu_res")
+
+stargazer(proecon.mod, type = "html", dep.var.labels = c("Protect the Economy"), covariate.labels = c("Age", "Gender", "Education", "Income", "Interest in Politics", "Ideology", "Rural / Urban", "Economic satistfaction"), no.space = TRUE, star.cutoffs = c(0.05, 0.01, 0.001), out = "proecon_res")
+
+stargazer(multi.mod1, type = "html", dep.var.labels = c("Protecting the environment", "Economic growth"), covariate.labels = c("Age", "Gender", "Education", "Income", "Interest in Politics", "Ideology", "Rural / Urban", "Economic satistfaction"), no.space = TRUE, star.cutoffs = c(0.05, 0.01, 0.001), out = "multimod_res")
