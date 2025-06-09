@@ -28,3 +28,8 @@ library(car)
 library(nnet)
 library(summarytools)
 library(stargazer)
+
+# Read the file and choose only Japan as variable.
+
+dat <- read.dta(file.choose(), convert.factors=FALSE)
+jpn<-dat%>%filter(B_COUNTRY==392)
