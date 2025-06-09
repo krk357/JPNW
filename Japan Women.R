@@ -54,3 +54,10 @@ table(jpn$pronatu)
 
 jpn$proecon <- recode(jpn$Q111, "2=1; 1=0; 3=0; else=0")
 table(jpn$proecon)
+
+# Preference variable for multimod
+
+jpn$preference <- recode(jpn$Q111, "1 = 'Protect the Economy'; 2 = 'Protect the Nature'; 3 = 'Other'; else = 'Dont know'")
+jpn$pref <- factor(jpn$preference, levels=c("Dont know", "Protect the Economy", "Protect the Nature"))
+
+table(jpn$pref)
