@@ -15,12 +15,12 @@
 #  2.) How does inclusion of “don’t know” responses help us better who is not being represented on surveys about climate change? 
 #
 
-install.packages("foreign", dependencies=TRUE)
-install.packages("dplyr")
-install.packages("car")
-install.packages("nnet")
-install.packages("summarytools")
-install.packages("stargazer")
+if (!require(foreign)) install.packages("foreign", dependencies = TRUE)
+if (!require(dplyr)) install.packages("dplyr", dependencies = TRUE)
+if (!require(car)) install.packages("car", dependencies = TRUE)
+if (!require(nnet)) install.packages("nnet", dependencies = TRUE)
+if (!require(summarytools)) install.packages("summarytools", dependencies = TRUE)
+if (!require(stargazer)) install.packages("stargazer", dependencies = TRUE)
 
 library(foreign)
 library(dplyr)
