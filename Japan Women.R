@@ -95,24 +95,30 @@ jpn$income <- recode(jpn$Q288, "-5=NA; -2=NA; -1=NA")
 table(jpn$income)
 
 # Q199 = Interest of Politics
+# How interested would you say you are in politics? Are you...
+# 1. Very interested 2.Somewhat interested 3. Not very interested 4. Not at all interested
 
 table(jpn$Q199)
 jpn$polint <- recode(jpn$Q199, "-5=NA; -2=NA; -1=NA; 1:2=1; 3:4=0")
 table(jpn$polint)
 
 # Q240 = Ideology
+# In political matters, people talk of "the left" and "the right." How would you place your views on this scale,generally speaking?
+# Left 1 ... 10 Right
 
 table(jpn$Q240)
 jpn$ideology <- recode(jpn$Q240, "-5=NA; -4=NA; -2=NA; -1=NA")
 table(jpn$ideology)
 
 # rural vs suburban
+# 1 = Urban (city, town), 2 = rural (village)
 
 table(jpn$H_URBRURAL)
 jpn$urbrural <- recode(jpn$H_URBRURAL, "-5=NA; 2=0; 1=1")
 table(jpn$urbrural)
 
 # Q50 = Economic satisfaction -> this? Prospective economic evaluations
+# Completely dissatisfied 1 ... 10 Completely satisfied
 
 table(jpn$Q50)
 jpn$econsat <- recode(jpn$Q50, "-5=NA; -2=NA; -1=NA")
