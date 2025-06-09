@@ -125,9 +125,7 @@ descr(jpn$dunnos)
 descr(jpn$pronatu)
 descr(jpn$proecon)
 
-###################################################
 ########## Generalized Linear Model ###############
-###################################################
 
 dunnos.mod <- glm(dunnos ~ age  + gender + educ + income + polint + ideology + urbrural + econsat, family = binomial, data = jpn)
 summary(dunnos.mod)
@@ -137,3 +135,8 @@ summary(pronatu.mod)
 
 proecon.mod <- glm(proecon ~ age + gender + educ + income + polint + ideology  + urbrural + econsat, family = binomial, data = jpn)
 summary(proecon.mod)
+
+####### Multinomial Logistic Regression ###########
+
+multi.mod1 <- multinom(pref ~ age  + gender + educ + income + polint + ideology + urbrural + econsat, family = binomial, data = jpn)
+summary(multi.mod1)
