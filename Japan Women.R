@@ -15,23 +15,14 @@
 #  2.) How does inclusion of “don’t know” responses help us better who is not being represented on surveys about climate change? 
 #
 
-# Download required packages, require() will check if the package is installed already before download.
+# Check if the packages are downloaded, and if not, then download them.
 
-if (!require(foreign)) install.packages("foreign", dependencies = TRUE)
-if (!require(dplyr)) install.packages("dplyr", dependencies = TRUE)
-if (!require(car)) install.packages("car", dependencies = TRUE)
-if (!require(nnet)) install.packages("nnet", dependencies = TRUE)
-if (!require(summarytools)) install.packages("summarytools", dependencies = TRUE)
-if (!require(stargazer)) install.packages("stargazer", dependencies = TRUE)
+packages <- c("foreign", "dplyr", "car", "nnet", "summarytools", "stargazer")
+installed <- packages %in% rownames(installed.packages())
+if (any(!installed)) install.packages(packages[!installed])
 
-# Apply the installed packages to this set ready to use.
-
-library(foreign)
-library(dplyr)
-library(car)
-library(nnet)
-library(summarytools)
-library(stargazer)
+# Load the packages.
+lapply(packages, library, character.only = TRUE)
 
 # Read the file and choose only Japan as variable.
 
