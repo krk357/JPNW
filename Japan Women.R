@@ -81,7 +81,7 @@ table(jpn$gender)
 # 0. No education 1. Primary education 2. Lower secondary education 3. Upper secondary education 4. Post-secondary non-tertiary education 5. Short-cycle tertiary education 6. Bachelor or equivalent 7. Master or equivalent 8. Doctoral or equivalent 
 
 table(jpn$Q275)
-jpn$educ <- recode(jpn$Q275, "-5=NA; -2=NA; -1=NA; 0=0; 1:3=1; 4:5=2; 6:7=3; 8=4")
+jpn$educ <- recode(jpn$Q275, "-5=NA; -2=NA; -1=NA; 0=0; 1:3=1; 4:5=2; 6:8=3")
 table(jpn$educ)
 
 # Q288 = Income
